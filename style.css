@@ -1,7 +1,7 @@
 /*style.css*/
 
 /*Center the text*/
-body {
+#textContainer {
 	text-align: center
 }
 
@@ -9,7 +9,13 @@ body {
 button {
 	width: 100px;
 	height: 180px;
+	margin: 10px;
+	border-radius: 20px;
 }
+
+/*button:hover {
+	transform: scale(1.5);
+}*/
 
 /*Temporary class to scale a card*/
 .scale {
@@ -17,4 +23,35 @@ button {
 	position: absolute;		/*Center the card*/
 	top: 50%;
 	left: 50%;
+}
+
+/*Temporary class to apply green background on cards*/
+.green {
+	background-color: green;
+}
+
+/*Temporary class to apply yellow background on coffee cards*/
+.yellow {
+	background-color: yellow;
+}
+
+/*Temporary class to apply red background on cards*/
+.red {
+	background-color: red;
+}
+
+/*Temporary class to apply background image on coffee card*/
+.coffee {
+	background-image: url("assets/images/coffee-cups.png");		/*Relative path*/
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+/*Temporary class to apply background image on holidays card*/
+.holidays {
+	background-image: url("assets/images/holidays.png");		/*Relative path*/
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
 }
