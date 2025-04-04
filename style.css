@@ -1,0 +1,20 @@
+/*style.css*/
+
+/*Center the text*/
+body {
+	text-align: center
+}
+
+/*Cards size*/
+button {
+	width: 100px;
+	height: 180px;
+}
+
+/*Temporary class to scale a card*/
+.scale {
+	transform: scale(4);
+	position: absolute;		/*Center the card*/
+	top: 50%;
+	left: 50%;
+}
