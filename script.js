@@ -1,11 +1,15 @@
 // script.js
 
-// Array Cards Poker Scrum
-let cards = ['0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', '', ''];
+			// VARIABLES
 
+// Array Cards Poker Scrum
+let cards = ['0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', 'COFFEE', 'HOLIDAYS'];
 
 // Create each card with JS
 let cardContainer = document.getElementById('cardContainer');
+
+// Initialize history container
+let historyList = document.getElementById('historyList');
 
 
 
@@ -14,7 +18,7 @@ let cardContainer = document.getElementById('cardContainer');
 
 // Countdown timer
 let timer;
-let timeLimit = 30; // 30 seconds for the user to click a car
+let timeLimit = 30; // 30 seconds for the user to click a card
 let timerDisplay = document.getElementById('timer');	// To display the timer
 
 // Function to start the timer
@@ -23,12 +27,12 @@ function startTimer() {
 
 	timer = setInterval(() => {
 		timeLeft--;				// Update the timer every second
-		timerDisplay.textContent = timeLeft;	// Update the displayed time
 		if (timeLeft <= 0) {
 			clearInterval(timer); // Stop the timer
 			alert('Time is up! Please select a card faster next time :)');
 			resetTimer();	// Reset the timer after the alert
 		}
+		timerDisplay.textContent = timeLeft;	// Update the displayed time
 	}, 1000); 	// Update every second (1000ms = 1s)
 }
 
@@ -36,6 +40,22 @@ function resetTimer() {
 	clearInterval(timer);
 	startTimer();	// Restart the timer
 }
+
+			// HISTORY
+
+// Function to add card to history
+function addToHistory(cardElement) { 
+	if (!cardElement.classList.contains('addedToHistory')) {		// Checks if the card is already in the history by checking if it already has this class
+
+		let listItem = document.createElement('li');		// Create a list element
+		listItem.textContent = cardElement.innerHTML; 		 // Use the contents of the chosen card (its text)
+		historyList.appendChild(listItem);		// Add it to the history list
+
+		cardElement.classList.add('addedToHistory');
+	}
+}
+
+
 
 
 			// MAINS LOOPS
@@ -47,8 +67,11 @@ for (let i = 0; i <= (cards.length)-1; i++) {
 	newCard.innerHTML = cards[i];					// from cards array.
 	cardContainer.appendChild(newCard);				// Add in this element.
 
-	newCard.addEventListener('click', () => scaleCard(newCard))	// Call scaleCard function when card was clicked
+	newCard.addEventListener('click', () => { 
+	scaleCard(newCard)	// Call scaleCard function when card was clicked
+	addToHistory(newCard); // Add card to history when clicked
 	resetTimer();
+	});
 
 	// To apply green color on first cards
 	if (i < 6) {

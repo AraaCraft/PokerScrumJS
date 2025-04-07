@@ -29,6 +29,26 @@ button {
     color: #333;
 }
 
+			/*STYLE FOR HISTORY*/
+#historyContainer {
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+#historyList {
+    list-style-type: none;
+    padding: 0;
+}
+#historyList li {
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #e7e7e7;
+}
+
 
 
 
@@ -61,27 +81,27 @@ button {
 .green {
 	background-color: green;
 }
-
 /*Temporary class to apply yellow background on coffee cards*/
 .yellow {
 	background-color: yellow;
 }
-
 /*Temporary class to apply red background on cards*/
 .red {
 	background-color: red;
 }
-
 /*Temporary class to apply background image on coffee card*/
 .coffee {
+	background-color: gray;
+	color: white;
 	background-image: url("assets/images/coffee-cups.png");		/*Relative path*/
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
 }
-
 /*Temporary class to apply background image on holidays card*/
 .holidays {
+	color: white;
+	background-color: gray;
 	background-image: url("assets/images/holidays.png");		/*Relative path*/
 	background-repeat: no-repeat;
 	background-size: contain;
