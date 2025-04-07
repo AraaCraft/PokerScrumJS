@@ -7,6 +7,39 @@ let cards = ['0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', '', '
 // Create each card with JS
 let cardContainer = document.getElementById('cardContainer');
 
+
+
+
+			// TIMER
+
+// Countdown timer
+let timer;
+let timeLimit = 30; // 30 seconds for the user to click a car
+let timerDisplay = document.getElementById('timer');	// To display the timer
+
+// Function to start the timer
+function startTimer() {
+	let timeLeft = timeLimit;
+
+	timer = setInterval(() => {
+		timeLeft--;				// Update the timer every second
+		timerDisplay.textContent = timeLeft;	// Update the displayed time
+		if (timeLeft <= 0) {
+			clearInterval(timer); // Stop the timer
+			alert('Time is up! Please select a card faster next time :)');
+			resetTimer();	// Reset the timer after the alert
+		}
+	}, 1000); 	// Update every second (1000ms = 1s)
+}
+
+function resetTimer() {
+	clearInterval(timer);
+	startTimer();	// Restart the timer
+}
+
+
+			// MAINS LOOPS
+
 //Loop to scan cards array
 for (let i = 0; i <= (cards.length)-1; i++) {		
 
@@ -15,6 +48,7 @@ for (let i = 0; i <= (cards.length)-1; i++) {
 	cardContainer.appendChild(newCard);				// Add in this element.
 
 	newCard.addEventListener('click', () => scaleCard(newCard))	// Call scaleCard function when card was clicked
+	resetTimer();
 
 	// To apply green color on first cards
 	if (i < 6) {
