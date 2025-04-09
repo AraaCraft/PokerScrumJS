@@ -14,6 +14,8 @@ let historyList = document.getElementById('historyList');
 
 
 
+
+
 			// TIMER
 
 // Countdown timer
@@ -41,19 +43,26 @@ function resetTimer() {
 	startTimer();	// Restart the timer
 }
 
+
+
+
+
+
 			// HISTORY
 
 // Function to add card to history
-function addToHistory(cardElement) { 
-	if (!cardElement.classList.contains('addedToHistory')) {		// Checks if the card is already in the history by checking if it already has this class
-
-		let listItem = document.createElement('li');		// Create a list element
-		listItem.textContent = cardElement.innerHTML; 		 // Use the contents of the chosen card (its text)
-		historyList.appendChild(listItem);		// Add it to the history list
-
-		cardElement.classList.add('addedToHistory');
-	}
+function addToHistory(cardElement) {
+	let listItem = document.createElement('li');	// Create a list element
+	listItem.textContent = cardElement.innerHTML;	// Use the contents of the chosen card (its text)
+	historyList.appendChild(listItem);		// Add it to the history list
 }
+
+// Clear history on button click
+let clearHistoryButton = document.getElementById('clearHistory');
+
+clearHistoryButton.addEventListener('click', () => {
+	historyList.innerHTML = ''; // Empty the list
+});
 
 
 
@@ -68,9 +77,14 @@ for (let i = 0; i <= (cards.length)-1; i++) {
 	cardContainer.appendChild(newCard);				// Add in this element.
 
 	newCard.addEventListener('click', () => { 
-	scaleCard(newCard)	// Call scaleCard function when card was clicked
-	addToHistory(newCard); // Add card to history when clicked
-	resetTimer();
+		const isAlreadyScaled = newCard.classList.contains('scale');
+
+		scaleCard(newCard)	// Call scaleCard function when card was clicked
+
+		if (!isAlreadyScaled) {
+			addToHistory(newCard);		// Add card to history when clicked
+			resetTimer();
+		}
 	});
 
 	// To apply green color on first cards
