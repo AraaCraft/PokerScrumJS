@@ -79,19 +79,23 @@ button {
 
 /*Temporary class to apply green background on cards*/
 .green {
-	background-color: green;
+	background-color: #8BD59E;
+	border-color: #1B9476;
 }
 /*Temporary class to apply yellow background on coffee cards*/
 .yellow {
-	background-color: yellow;
+	background-color: #FFD754;
+	border-color: yellow;
 }
 /*Temporary class to apply red background on cards*/
 .red {
-	background-color: red;
+	background-color: #C23028;
+	border-color: red;
 }
 /*Temporary class to apply background image on coffee card*/
 .coffee {
-	background-color: gray;
+	background-color: #CA7C5C;
+	border-color: #B36A5E;
 	color: white;
 	background-image: url("assets/images/coffee-cups.png");		/*Relative path*/
 	background-repeat: no-repeat;
@@ -100,8 +104,9 @@ button {
 }
 /*Temporary class to apply background image on holidays card*/
 .holidays {
+	background-color: #5FC2BA;
+	border-color: #27C7D4;
 	color: white;
-	background-color: gray;
 	background-image: url("assets/images/holidays.png");		/*Relative path*/
 	background-repeat: no-repeat;
 	background-size: contain;
