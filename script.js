@@ -113,16 +113,27 @@ for (let i = 0; i <= (cards.length)-1; i++) {
 
 			//ANIMATION CARDS FUNCTIONS
 
-const clickSound = new Audio('assets/sounds/arcade-ui-6-pixabay.mp3'); // Remplace le chemin par le tien
+const clickSound = new Audio('assets/sounds/arcade-ui-6-pixabay.mp3');
 
 // Add clic event for each button
 const buttons = document.querySelectorAll('button');		// Variable who collect all buttons
 
 buttons.forEach(button => {
 	button.addEventListener('click', () => {
-		clickSound.play(); // Play sound when clic
+		clickSound.play(); // Play sound when click
 	});
 });
+
+// Sound effect for delete (history) button
+const clickDeleteSound = new Audio('assets/sounds/trash_notif.mp3');
+const trash = document.querySelector('#clearHistory');
+
+if (trash) {
+	trash.addEventListener('click', () => {
+		clickDeleteSound.play(); 	// Play trash sound when clicked
+	});
+}
+			// SCALE CARD FUNCTION
 
 // Fuction to scale cards on clic
 function scaleCard(card) {
@@ -141,6 +152,8 @@ function scaleCard(card) {
 		card.classList.add('allowClic');
 	}
 	card.classList.toggle('scale');	// To alternate enter scale and reduce
+	cardContainer.classList.toggle('stopHover'); // To block background hover if one card was scale before
+	
 }
 
 

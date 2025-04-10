@@ -34,9 +34,9 @@ button {
 	background-color: #363B48;
 }
 
-/* button:hover {
+button:hover {
 	transform: scale(1.5);
-} */
+} 
 
 #timerContainer {
     font-size: 20px;
@@ -87,6 +87,11 @@ button {
 /*Temporary class to allow clic on the current scale card*/
 .allowClic {
 	pointer-events: auto;
+}
+
+/*Temporary class to block hover*/
+.stopHover {
+	pointer-events:none;
 }
 
 
