@@ -16,7 +16,7 @@ button {
 	border-radius: 20px;
 	background-color: white;
 }
-
+/*Style for button "Delete History"*/
 #clearHistory {
 	margin-top: 10px;
 	padding: 6px 12px;
@@ -40,6 +40,32 @@ button {
 	width: 90px;
 	height: 30px;
 	background-color: #C49FFF;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.newCardbuttonStyle {
+	margin-top: 10px;
+	padding: 6px 12px;
+	width: 90px;
+	height: 30px;
+	background-color: #CA3C66;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.deleteCardsStyle {
+	margin-top: 10px;
+	padding: 6px 12px;
+	width: 90px;
+	height: 40px;
+	background-color: #344D59;
 	color: white;
 	border: none;
 	border-radius: 5px;
@@ -80,7 +106,7 @@ button:hover {
 }
 
 
-
+/*_______________________________________________________________________________________________________________*/
 
 			/*EVENT CARDS FUNCTIONS*/
 
@@ -108,6 +134,7 @@ button:hover {
 }
 
 
+/*_______________________________________________________________________________________________________________*/
 
 
 			/*BACKGROUND CARDS CLASS*/

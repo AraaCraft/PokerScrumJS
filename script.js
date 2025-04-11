@@ -1,5 +1,7 @@
 // script.js
 
+//_______________________________________________________________________________________________________________
+
 			// VARIABLES
 
 // Array Cards Poker Scrum
@@ -13,8 +15,60 @@ let historyList = document.getElementById('historyList');
 
 
 
+//_______________________________________________________________________________________________________________
+
+			// ADD CARD PROMPT
+
+let newCardContainer = document.getElementById('newCardContainer');
+let cardTxt = "New Card";	// Text for button "new card"
+var newCardbutton;
+
+// Create button "New Card"
+function createNewCardButton() {
+	
+	newCardbutton = document.createElement('button');
+	newCardbutton.innerHTML = cardTxt;
+	newCardContainer.appendChild(newCardbutton);
+	newCardbuttonStyle(newCardbutton);
+}
+
+createNewCardButton();
+
+newCardbutton.addEventListener('click', () => {
+	let resultatPrompt = prompt("Do you want a new card ? Please choose it value : ")
+	cards.push(resultatPrompt);
+	cardContainer.innerHTML = "";
+	loopDisplayAllCards();
+});
+
+//_______________________________________________________________________________________________________________
+
+		// DELETE ALL CARDS
+
+let deleteCardsContainer = document.getElementById('deleteCardsContainer');
+let deleteButtonTxt = "Delete News Cards 🗑️";
+var deleteButton;
+
+// Create button "Delete"
+function createDeleteButton() {
+
+	deleteButton = document.createElement('button');
+	deleteButton.innerHTML = deleteButtonTxt;
+	deleteCardsContainer.appendChild(deleteButton);
+	newCardbuttonStyle(deleteButton);
+	deleteCardsStyle(deleteButton);
+}
+
+createDeleteButton();
+
+deleteButton.addEventListener('click', () => {
+	cards = ['0', '0.5', '1', '2', '3', '5', '8', '13', '20', '40', '100', 'COFFEE', 'HOLIDAYS'];
+	cardContainer.innerHTML = "";
+	loopDisplayAllCards();
+})
 
 
+//_______________________________________________________________________________________________________________
 
 			// TIMER
 
@@ -22,7 +76,7 @@ let historyList = document.getElementById('historyList');
 let timer;
 let timeLimit = 31; // 30 seconds for the user to click a card
 let timerDisplay = document.getElementById('timer');	// To display the timer
-let buttonTxt = "Start ⏱️"
+let buttonTxt = "Start ⏱️";
 let timerButtonContainer = document.getElementById('timerButtonContainer');
 
 
@@ -59,7 +113,7 @@ function resetTimer() {
 
 }
 
-
+//_______________________________________________________________________________________________________________
 
 
 			// HISTORY
@@ -81,9 +135,12 @@ clearHistoryButton.addEventListener('click', () => {
 
 
 
+//_______________________________________________________________________________________________________________
+
 			// MAINS LOOPS
 
 //Loop to scan cards array
+function loopDisplayAllCards() {
 for (let i = 0; i <= (cards.length)-1; i++) {		
 
 	let newCard = document.createElement('button');	//Create new "button" card.
@@ -121,9 +178,11 @@ for (let i = 0; i <= (cards.length)-1; i++) {
 	else {
 		holidays(newCard)	// Call holidays function to color this card.
 	}
-}
+}}
 
+loopDisplayAllCards();
 
+//_______________________________________________________________________________________________________________
 
 			//ANIMATION CARDS FUNCTIONS
 
@@ -159,6 +218,8 @@ function scaleCard(card) {
 
 
 
+//_______________________________________________________________________________________________________________
+
 			//CARDS BACKGROUND FUNCTIONS
 
 // Function to apply green background on cards
@@ -185,3 +246,13 @@ function holidays (card) {
 function timerButtonStyle (timerButton) {
 	timerButton.classList.add('timerButtonStyle');
 }
+
+function newCardbuttonStyle (newCardbutton) {
+	newCardbutton.classList.add('newCardbuttonStyle');
+}
+
+function deleteCardsStyle (deleteButton) {
+	deleteButton.classList.add('deleteCardsStyle');
+}
+
+//_______________________________________________________________________________________________________________
