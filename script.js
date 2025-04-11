@@ -20,8 +20,22 @@ let historyList = document.getElementById('historyList');
 
 // Countdown timer
 let timer;
-let timeLimit = 30; // 30 seconds for the user to click a card
+let timeLimit = 31; // 30 seconds for the user to click a card
 let timerDisplay = document.getElementById('timer');	// To display the timer
+let buttonTxt = "Start ⏱️"
+let timerButtonContainer = document.getElementById('timerButtonContainer');
+
+
+// Function to create timer button
+function createTimerButton() {
+var timerButton = document.createElement('button'); // To start timer
+timerButton.innerHTML = buttonTxt;
+timerButtonContainer.appendChild(timerButton);	// To add button in HTML
+timerButtonStyle(timerButton);
+}
+
+createTimerButton();
+timerButtonContainer.addEventListener('click', startTimer);
 
 // Function to start the timer
 function startTimer() {
@@ -32,18 +46,18 @@ function startTimer() {
 		if (timeLeft <= 0) {
 			clearInterval(timer); // Stop the timer
 			alert('Time is up! Please select a card faster next time :)');
+			timerButtonContainer.addEventListener('click', startTimer);
 			resetTimer();	// Reset the timer after the alert
 		}
 		timerDisplay.textContent = timeLeft;	// Update the displayed time
-	}, 1000); 	// Update every second (1000ms = 1s)
+	}, 1000); 									// Update every second (1000ms = 1s)
+	timerButtonContainer.removeEventListener('click', startTimer);	// To disable click on
 }
 
 function resetTimer() {
 	clearInterval(timer);
-	startTimer();	// Restart the timer
+
 }
-
-
 
 
 
@@ -61,7 +75,7 @@ function addToHistory(cardElement) {
 let clearHistoryButton = document.getElementById('clearHistory');
 
 clearHistoryButton.addEventListener('click', () => {
-	historyList.innerHTML = ''; // Empty the list
+	historyList.innerHTML = ''; // Empty the history
 });
 
 
@@ -113,27 +127,16 @@ for (let i = 0; i <= (cards.length)-1; i++) {
 
 			//ANIMATION CARDS FUNCTIONS
 
-const clickSound = new Audio('assets/sounds/arcade-ui-6-pixabay.mp3');
+const clickSound = new Audio('assets/sounds/arcade-ui-6-pixabay.mp3'); // Remplace le chemin par le tien
 
 // Add clic event for each button
 const buttons = document.querySelectorAll('button');		// Variable who collect all buttons
 
 buttons.forEach(button => {
 	button.addEventListener('click', () => {
-		clickSound.play(); // Play sound when click
+		clickSound.play(); // Play sound when clic
 	});
 });
-
-// Sound effect for delete (history) button
-const clickDeleteSound = new Audio('assets/sounds/trash_notif.mp3');
-const trash = document.querySelector('#clearHistory');
-
-if (trash) {
-	trash.addEventListener('click', () => {
-		clickDeleteSound.play(); 	// Play trash sound when clicked
-	});
-}
-			// SCALE CARD FUNCTION
 
 // Fuction to scale cards on clic
 function scaleCard(card) {
@@ -152,8 +155,6 @@ function scaleCard(card) {
 		card.classList.add('allowClic');
 	}
 	card.classList.toggle('scale');	// To alternate enter scale and reduce
-	cardContainer.classList.toggle('stopHover'); // To block background hover if one card was scale before
-	
 }
 
 
@@ -179,4 +180,8 @@ function coffee (card) {
 // Function to apply holidays background on cards
 function holidays (card) {
 	card.classList.add('holidays');
+}
+
+function timerButtonStyle (timerButton) {
+	timerButton.classList.add('timerButtonStyle');
 }

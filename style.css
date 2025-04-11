@@ -34,6 +34,19 @@ button {
 	background-color: #363B48;
 }
 
+.timerButtonStyle {
+	margin-top: 10px;
+	padding: 6px 12px;
+	width: 90px;
+	height: 30px;
+	background-color: #C49FFF;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
 button:hover {
 	transform: scale(1.5);
 } 
